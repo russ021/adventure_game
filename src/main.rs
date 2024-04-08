@@ -58,7 +58,7 @@ fn main() {
             vec![1, 2],
         ),
         StoryNode::new(
-            "You encounter a bear. What do you do?".to_string(),
+            "You encounter a bear. Pop quiz hotshot, What do you do?".to_string(),
             vec!["Run away".to_string(), "Fight the bear".to_string()],
             vec![0, 3],
         ),
@@ -68,12 +68,12 @@ fn main() {
             vec![3, 4],
         ),
         StoryNode::new(
-            "Congratulations! You survived the adventure.".to_string(),
+            "Congratulations! You didn't die.".to_string(),
             vec![],
             vec![],
         ),
         StoryNode::new(
-            "Oh no! The treasure chest was trapped and you're poisoned.".to_string(),
+            "Oh no! It was a trap and you're poisoned.".to_string(),
             vec![],
             vec![],
         ),
