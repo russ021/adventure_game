@@ -59,12 +59,12 @@ fn main() {
         ),
         StoryNode::new(
             "You encounter a bear. What do you do?".to_string(),
-            vec!["Run away", "Fight the bear"],
+            vec!["Run away".to_string(), "Fight the bear".to_string()],
             vec![0, 3],
         ),
         StoryNode::new(
             "You stumble upon a treasure chest. Do you open it?".to_string(),
-            vec!["Yes", "No"],
+            vec!["Yes".to_string(), "No".to_string()],
             vec![3, 4],
         ),
         StoryNode::new(
