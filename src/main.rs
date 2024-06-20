@@ -63,17 +63,17 @@ fn main() {
             vec![0, 3],
         ),
         StoryNode::new(
-            "You stumble upon a treasure chest. Do you open it?".to_string(),
+            "You stumble upon a red door. Do you open it?".to_string(),
             vec!["Yes".to_string(), "No".to_string()],
             vec![3, 4],
         ),
         StoryNode::new(
-            "Congratulations! You didn't die.".to_string(),
+            "Congratulations! You are still alive.".to_string(),
             vec![],
             vec![],
         ),
         StoryNode::new(
-            "Oh no! It was a trap and you're poisoned.".to_string(),
+            "Oh no! It was a trap and you fell into a rabbit hole.".to_string(),
             vec![],
             vec![],
         ),
