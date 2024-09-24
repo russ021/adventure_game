@@ -58,7 +58,7 @@ fn main() {
             vec![1, 2],
         ),
         StoryNode::new(
-            "You encounter a bear. Pop quiz hotshot, What do you do?".to_string(),
+            "You encounter a bear. Pop quiz hotshot, the bear charges at you, what do you do?".to_string(),
             vec!["Run away".to_string(), "Fight the bear".to_string()],
             vec![0, 3],
         ),
