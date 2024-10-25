@@ -53,17 +53,17 @@ fn main() {
     // Define story nodes
     let nodes = vec![
         StoryNode::new(
-            "You find yourself in a dark forest. Which path do you take?".to_string(),
+            "You find yourself in a dark alley. Which way do you go?".to_string(),
             vec!["Go left".to_string(), "Go right".to_string()],
             vec![1, 2],
         ),
         StoryNode::new(
-            "You encounter a bear. Pop quiz hotshot, the bear charges at you, what do you do?".to_string(),
-            vec!["Run away".to_string(), "Fight the bear".to_string()],
+            "You encounter security. Pop quiz hotshot, security charges at you, what do you do?".to_string(),
+            vec!["Run away".to_string(), "Take his gun".to_string()],
             vec![0, 3],
         ),
         StoryNode::new(
-            "You stumble upon a red door. Do you open it?".to_string(),
+            "You shot the security guard? You briskly disscharge the rest of the bullets and render the gun useless".to_string(),
             vec!["Yes".to_string(), "No".to_string()],
             vec![3, 4],
         ),
