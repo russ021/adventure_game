@@ -62,20 +62,6 @@ fn main() {
     // Define story nodes
     let nodes = vec![
         StoryNode::new(
-<<<<<<< HEAD
-            "You find yourself in a dark alley. Which way do you go?".to_string(),
-            vec!["Go left".to_string(), "Go right".to_string()],
-            vec![1, 2],
-        ),
-        StoryNode::new(
-            "You encounter security. Pop quiz hotshot, security charges at you, what do you do?".to_string(),
-            vec!["Run away".to_string(), "Take his gun".to_string()],
-            vec![0, 3],
-        ),
-        StoryNode::new(
-            "You shot the security guard? You briskly disscharge the rest of the bullets and render the gun useless".to_string(),
-            vec!["Yes".to_string(), "No".to_string()],
-=======
             "You find yourself in a dark alley. Which way do you go?",
             vec!["Go left", "Go right"],
             vec![1, 2],
@@ -88,7 +74,6 @@ fn main() {
         StoryNode::new(
             "You shot the security guard? You briskly discharge the rest of the bullets and render the gun useless.",
             vec!["Yes", "No"],
->>>>>>> 751637c (refactor)
             vec![3, 4],
         ),
         StoryNode::new("Congratulations! You are still alive.", vec![], vec![]),
