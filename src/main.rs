@@ -8,24 +8,37 @@ struct StoryNode {
 }
 
 impl StoryNode {
-    fn new(text: String, options: Vec<String>, next_nodes: Vec<usize>) -> Self {
+    fn new(text: &str, options: Vec<&str>, next_nodes: Vec<usize>) -> Self {
         Self {
-            text,
-            options,
+            text: text.to_string(),
+            options: options.into_iter().map(String::from).collect(),
             next_nodes,
         }
     }
 
     // Display the current story node's text and available options.
     fn display(&self) {
-        println!("{}", self.text);
+        println!("\n{}", self.text);
+        self.display_options();
+    }
+
+    // Display options, if any
+    fn display_options(&self) {
+        if self.options.is_empty() {
+            println!("(End of story)");
+            return;
+        }
         for (index, option) in self.options.iter().enumerate() {
             println!("{}. {}", index + 1, option);
         }
     }
 
     // Get the index of the next story node based on the player's choice.
-    fn get_next_node(&self) -> usize {
+    fn get_next_node(&self) -> Option<usize> {
+        if self.options.is_empty() {
+            return None;
+        }
+
         loop {
             print!("Enter your choice: ");
             io::stdout().flush().expect("Failed to flush stdout");
@@ -35,15 +48,11 @@ impl StoryNode {
                 .read_line(&mut choice)
                 .expect("Failed to read line");
 
-            // Parse the choice as usize, subtracting 1 to adjust for 0-based indexing.
             match choice.trim().parse::<usize>() {
-                Ok(index) if index >= 1 && index <= self.options.len() => {
-                    return self.next_nodes[index - 1]
+                Ok(index) if (1..=self.options.len()).contains(&index) => {
+                    return Some(self.next_nodes[index - 1]);
                 }
-                _ => {
-                    println!("Invalid choice. Please enter a valid option number.");
-                    continue;
-                }
+                _ => println!("Invalid choice. Please enter a valid option number."),
             }
         }
     }
@@ -53,6 +62,7 @@ fn main() {
     // Define story nodes
     let nodes = vec![
         StoryNode::new(
+<<<<<<< HEAD
             "You find yourself in a dark alley. Which way do you go?".to_string(),
             vec!["Go left".to_string(), "Go right".to_string()],
             vec![1, 2],
@@ -65,18 +75,24 @@ fn main() {
         StoryNode::new(
             "You shot the security guard? You briskly disscharge the rest of the bullets and render the gun useless".to_string(),
             vec!["Yes".to_string(), "No".to_string()],
+=======
+            "You find yourself in a dark alley. Which way do you go?",
+            vec!["Go left", "Go right"],
+            vec![1, 2],
+        ),
+        StoryNode::new(
+            "You encounter security. Pop quiz hotshot, security charges at you, what do you do?",
+            vec!["Run away", "Take his gun"],
+            vec![0, 3],
+        ),
+        StoryNode::new(
+            "You shot the security guard? You briskly discharge the rest of the bullets and render the gun useless.",
+            vec!["Yes", "No"],
+>>>>>>> 751637c (refactor)
             vec![3, 4],
         ),
-        StoryNode::new(
-            "Congratulations! You are still alive.".to_string(),
-            vec![],
-            vec![],
-        ),
-        StoryNode::new(
-            "Oh no! It was a trap and you fell into a rabbit hole.".to_string(),
-            vec![],
-            vec![],
-        ),
+        StoryNode::new("Congratulations! You are still alive.", vec![], vec![]),
+        StoryNode::new("Oh no! It was a trap and you fell into a rabbit hole.", vec![], vec![]),
     ];
 
     let mut current_node_index = 0; // Start from the first node
@@ -85,11 +101,11 @@ fn main() {
         let current_node = &nodes[current_node_index];
         current_node.display();
 
-        if current_node.options.is_empty() {
+        if let Some(next_node_index) = current_node.get_next_node() {
+            current_node_index = next_node_index;
+        } else {
             break; // End of the story
         }
-
-        current_node_index = current_node.get_next_node();
     }
 }
 
