@@ -1,0 +1,27 @@
+{
+  "start": {
+    "text": "You find yourself in a dark alley. Which way do you go?",
+    "options": ["Go left", "Go right"],
+    "next_nodes": ["security", "interrogation"]
+  },
+  "security": {
+    "text": "You encounter security. Pop quiz hotshot, security charges at you, what do you do?",
+    "options": ["Run away", "Take his gun"],
+    "next_nodes": ["start", "victory"]
+  },
+  "interrogation": {
+    "text": "You shot the security guard? You briskly discharge the rest of the bullets and render the gun useless.",
+    "options": ["Yes", "No"],
+    "next_nodes": ["victory", "defeat"]
+  },
+  "victory": {
+    "text": "Congratulations! You are still alive.",
+    "options": [],
+    "next_nodes": []
+  },
+  "defeat": {
+    "text": "Oh no! It was a trap and you fell into a rabbit hole.",
+    "options": [],
+    "next_nodes": []
+  }
+}
